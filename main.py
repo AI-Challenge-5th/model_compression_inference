@@ -46,7 +46,7 @@ def creat_dataset_txt():
             f.write(img+"\n")
 
 def calc_model_param(model):
-    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+    return sum(p.numel() for p in model.parameters())
 
 def test(data,
          weights=None,
@@ -140,7 +140,12 @@ def test(data,
     p, r, f1, mp, mr, map50, map, t0, t1 = 0., 0., 0., 0., 0., 0., 0., 0., 0.
     loss = torch.zeros(3, device=device)
     jdict, stats, ap, ap_class, wandb_images = [], [], [], [], []
-    model_params_num = calc_model_param(model)
+    if model_archi=='yolor':
+        model_params_num = calc_model_param(model)
+    elif model_archi=='yolov5':
+        model_params_num = calc_model_param(model.model)
+    else:
+        model_params_num = calc_model_param(model)
     
     jdict.append({'framework':'pytorch'})
     jdict.append({'parameters':int(model_params_num)})
