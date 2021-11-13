@@ -38,8 +38,8 @@ def load_classes(path):
     return list(filter(None, names))  # filter removes empty strings (such as last line)
 
 def creat_dataset_txt():
-#     data_path = Path("/home/agc2021/dataset/")
-    data_path = Path("./dataset/")
+    data_path = Path("/home/agc2021/dataset/")
+#     data_path = Path("./dataset/")
     images = [str(x) for x in list(data_path.glob("t4_*.jpg"))]
     with open("agc2021_testset.txt", 'w') as f:
         for img in images:
