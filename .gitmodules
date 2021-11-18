@@ -2,3 +2,6 @@
 	path = yolor
 	url = https://github.com/AI-Challenge-5th/yolor.git
 	branch = inference
+[submodule "yolov5"]
+	path = yolov5
+	url = https://github.com/ultralytics/yolov5.git
