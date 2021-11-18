@@ -287,7 +287,7 @@ if __name__ == '__main__':
              opt.verbose,
              save_txt=opt.save_txt,
              save_conf=opt.save_conf,
-             model_archi='yolov5'
+             model_archi='yolor'
              )
 
     
